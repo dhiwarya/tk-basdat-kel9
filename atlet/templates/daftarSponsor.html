@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+select,
+input[type="date"] {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+</style>
+
+<body>
+    <h1>Daftar Sponsor</h1>
+    <form>
+      <div>
+        <label for="sponsor">Nama Sponsor:</label>
+        <select id="sponsor" name="sponsor">
+          <option value="sponsorA">Sponsor A</option>
+          <option value="sponsorB">Sponsor B</option>
+          <option value="sponsorC">Sponsor C</option>
+        </select>
+      </div>
+      <div>
+        <label for="tgl_mulai">Tanggal Mulai:</label>
+        <input type="date" id="tgl_mulai" name="tgl_mulai">
+      </div>
+      <div>
+        <label for="tgl_selesai">Tanggal Selesai:</label>
+        <input type="date" id="tgl_selesai" name="tgl_selesai">
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </body>
+
+{% endblock content %}

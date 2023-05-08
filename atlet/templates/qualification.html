@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  select {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  select {
+    height: 40px;
+  }
+  
+  input[type="button"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  input[type="button"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  .error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+</style>
+
+  <!-- qualification.html -->
+<h1>FORM DATA KUALIFIKASI</h1>
+
+<!-- Form data kualifikasi -->
+<form method="post">
+  {% csrf_token %}
+  <label for="batch_number">Nomor batch:</label>
+  <input type="text" id="batch_number" name="batch_number"><br><br>
+  
+  <label for="location">Tempat pelaksanaan:</label>
+  <select id="location" name="location">
+    {% for loc in locations %}
+      <option value="{{ loc }}">{{ loc }}</option>
+    {% endfor %}
+  </select><br><br>
+  
+  <label for="date">Tanggal pelaksanaan:</label>
+  <select id="date" name="date">
+    {% for dt in dates %}
+      <option value="{{ dt }}">{{ dt }}</option>
+    {% endfor %}
+  </select><br><br>
+  
+  <input type="button" value="NEXT" onclick="window.location.href='/question'">
+
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* Styles for the question container */
+.question {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Styles for the question container text */
+.question p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styles for the question choices */
+.question ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.question li {
+  margin-bottom: 5px;
+}
+
+.question label {
+  margin-left: 5px;
+}
+
+/* Styles for the submit button */
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+</style>
+
+<h1>Pertanyaan Kualifikasi</h1>
+
+<div class="question">
+    <p>Question 1</p>
+    <ul>
+      <li><input type="radio" name="q1" id="q1a1"><label for="q1a1">Choice 1</label></li>
+      <li><input type="radio" name="q1" id="q1a2"><label for="q1a2">Choice 2</label></li>
+      <li><input type="radio" name="q1" id="q1a3"><label for="q1a3">Choice 3</label></li>
+    </ul>
+  </div>
+<!-- Pertanyaan kualifikasi--> 
+{% if show_questions %}
+  <form method="post" action="{% url 'qualification' %}">
+    {% csrf_token %}
+    {% for question in questions %}
+      <h3>{{ question }}</h3>
+      {% for choice in choices %}
+        <input type="radio" id="{{ choice }}" name="{{ question }}" value="{{ choice }}">
+        <label for="{{ choice }}">{{ choice }}</label><br>
+      {% endfor %}
+    {% endfor %}
+    <input type="submit" value="SUBMIT">
+  </form>
+{% endif %}
+
+{% endblock %}
