@@ -4,7 +4,7 @@ from django.db.models.functions import datetime
 
 # Create your views here.
 def fetch(cursor):
-    columns = [col[0] for col in cursor.description]
+    # columns = [col[0] for col in cursor.description]
     return [dict(zip(columns, row)) for row in cursor.fetchall()]
 
 def r_ujian_kualifikasi(request):
@@ -25,8 +25,8 @@ def r_ujian_kualifikasi(request):
                     tanggal ASC;
             """
     cursor = connection.cursor()
-    cursor.execute('SET search_path to babadu;')
-    cursor.execute(query_list_ujian)
+    # cursor.execute('SET search_path to babadu;')
+    # cursor.execute(query_list_ujian)
     data_list_ujian = fetch(cursor)
     response = {'ujian_kualifikasi': data_list_ujian}
 

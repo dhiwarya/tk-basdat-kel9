@@ -3,76 +3,91 @@
 {% block content %}
 
 <!-- r_k_ujian_kualifikasi.html -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-{% if user.is_umpire %}
-  <h1>Riwayat Ujian Kualifikasi</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Nama Atlet</th>
-        <th>Tahun</th>
-        <th>Batch</th>
-        <th>Tempat Pelaksanaan</th>
-        <th>Tanggal Pelaksanaan</th>
-        <th>Hasil</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for data in riwayat_atlet_kualifikasi %}
+<!-- r_k_ujian_kualifikasi.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  {% if user.is_umpire %}
+    <h1 class="mb-4">Riwayat Ujian Kualifikasi</h1>
+    <table class="table">
+      <thead class="thead-dark">
         <tr>
-          <td>{{ data.nama }}</td>
-          <td>{{ data.tahun }}</td>
-          <td>{{ data.batch }}</td>
-          <td>{{ data.tempat }}</td>
-          <td>{{ data.tanggal }}</td>
-          <td>Lulus</td>
+          <th scope="col">Nama Atlet</th>
+          <th scope="col">Tahun</th>
+          <th scope="col">Batch</th>
+          <th scope="col">Tempat Pelaksanaan</th>
+          <th scope="col">Tanggal Pelaksanaan</th>
+          <th scope="col">Hasil</th>
         </tr>
-      {% endfor %}
-      {% for data in riwayat_atlet_non_kualifikasi %}
+      </thead>
+      <tbody>
+        {% for data in riwayat_atlet_kualifikasi %}
+          <tr>
+            <td>{{ data.nama }}</td>
+            <td>{{ data.tahun }}</td>
+            <td>{{ data.batch }}</td>
+            <td>{{ data.tempat }}</td>
+            <td>{{ data.tanggal }}</td>
+            <td>Lulus</td>
+          </tr>
+        {% endfor %}
+        {% for data in riwayat_atlet_non_kualifikasi %}
+          <tr>
+            <td>{{ data.nama }}</td>
+            <td>{{ data.tahun }}</td>
+            <td>{{ data.batch }}</td>
+            <td>{{ data.tempat }}</td>
+            <td>{{ data.tanggal }}</td>
+            <td>Tidak Lulus</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h1 class="mb-4">Riwayat Ujian Kualifikasi</h1>
+    <table class="table">
+      <thead class="thead-dark">
         <tr>
-          <td>{{ data.nama }}</td>
-          <td>{{ data.tahun }}</td>
-          <td>{{ data.batch }}</td>
-          <td>{{ data.tempat }}</td>
-          <td>{{ data.tanggal }}</td>
-          <td>Tidak Lulus</td>
+          <th scope="col">Tahun</th>
+          <th scope="col">Batch</th>
+          <th scope="col">Tempat Pelaksanaan</th>
+          <th scope="col">Tanggal Pelaksanaan</th>
+          <th scope="col">Hasil</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% else %}
-  <h1>Riwayat Ujian Kualifikasi</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Tahun</th>
-        <th>Batch</th>
-        <th>Tempat Pelaksanaan</th>
-        <th>Tanggal Pelaksanaan</th>
-        <th>Hasil</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for data in riwayat_atlet_kualifikasi %}
-        <tr>
-          <td>{{ data.tahun }}</td>
-          <td>{{ data.batch }}</td>
-          <td>{{ data.tempat }}</td>
-          <td>{{ data.tanggal }}</td>
-          <td>Lulus</td>
-        </tr>
-      {% endfor %}
-      {% for data in riwayat_atlet_non_kualifikasi %}
-        <tr>
-          <td>{{ data.tahun }}</td>
-          <td>{{ data.batch }}</td>
-          <td>{{ data.tempat }}</td>
-          <td>{{ data.tanggal }}</td>
-          <td>Tidak Lulus</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% endif %}
+      </thead>
+      <tbody>
+        {% for data in riwayat_atlet_kualifikasi %}
+          <tr>
+            <td>{{ data.tahun }}</td>
+            <td>{{ data.batch }}</td>
+            <td>{{ data.tempat }}</td>
+            <td>{{ data.tanggal }}</td>
+            <td>Lulus</td>
+          </tr>
+        {% endfor %}
+        {% for data in riwayat_atlet_non_kualifikasi %}
+          <tr>
+            <td>{{ data.tahun }}</td>
+            <td>{{ data.batch }}</td>
+            <td>{{ data.tempat }}</td>
+            <td>{{ data.tanggal }}</td>
+            <td>Tidak Lulus</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+
+{% endblock content %}
+
 
 {% endblock content %}

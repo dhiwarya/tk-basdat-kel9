@@ -21,5 +21,6 @@ urlpatterns = [
     path('atlet/', include('atlet.urls')),
     path('', include('landing_page.urls')),
     path('pink/', include('pink.urls')),
+    path('hijau/', include('hijau.urls')),
     path('dashboard/', include('dashboard.urls'))
 ]
