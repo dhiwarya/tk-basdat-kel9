@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* style.css */
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.link-container a {
+  margin: 0 10px;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.link-container a:hover {
+  background-color: #45a049;
+}
+</style>
+<!-- login_register.html -->
+
+<div class="container">
+    <h2 class="title">BABADU - &lt;KODE KELOMPOK&gt;</h2>
+    <div class="link-container">
+      <a href="{% url 'landing_page:login' %}">LOGIN</a>
+      <a href="{% url 'landing_page:register' %}">REGISTER</a>
+    </div>
+  </div>
+{% endblock content %}

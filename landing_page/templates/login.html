@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* style.css */
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.alert {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+
+</style>
+
+<!-- login.html -->
+
+<body>
+    <div class="container">
+      <h1 class="subtitle text-center">FORM LOGIN</h1>
+      <form method="POST" action="{% url 'landing_page:login' %}">
+        {% csrf_token %}
+      <label for="nama" class="form-label">Nama:</label>
+      <input type="text" id="nama" name="nama" class="form-control" required>
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" id="email" name="email" class="form-control" required>
+      <button class="button" type="submit">LOGIN</button>
+
+      {% if failed %}
+        <div class="alert" style="padding: 2%;">
+          <p class="subtitle text-center">Nama atau Email yang dimasukkan salah!</p>
+        </div>
+      {% endif %}
+      </form>
+      <div id="error-message"></div>
+    </div>
+
+  </body>
+
+
+{% endblock content %}

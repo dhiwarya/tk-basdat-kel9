@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+form {
+  background-color: #fff;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M17.3,8.3l-5.3,5.3c-0.4,0.4-1,0.4-1.4,0L6.7,8.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0l3.5,3.5l3.5-3.5c0.4-0.4,1-0.4,1.4,0l1.4,1.4C17.7,7.3,17.7,7.9,17.3,8.3z'/></svg>");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+</style>
+
+<body>
+  <h1>Tes Kualifikasi - Form Data Kualifikasi</h1>
+  <form action="" method="post">
+    <label for="batch">Nomor batch:</label>
+    <input type="text" id="batch" name="batch" required>
+    <br><br>
+    <label for="location">Tempat pelaksanaan:</label>
+    <select id="location" name="location" required>
+      <option value="">-- Pilih tempat pelaksanaan --</option>
+      <option value="Gelora Bung Karno">Gelora Bung Karno</option>
+      <option value="Senayan">Senayan</option>
+      <option value="Jakarta International Expo">Jakarta International Expo</option>
+    </select>
+    <br><br>
+    <label for="date">Tanggal pelaksanaan:</label>
+    <select id="date" name="date" required>
+      <option value="">-- Pilih tanggal pelaksanaan --</option>
+      <option value="2022-06-12">12 Juni 2022</option>
+      <option value="2022-06-19">19 Juni 2022</option>
+      <option value="2022-06-26">26 Juni 2022</option>
+    </select>
+    <br><br>
+    <input type="submit" value="NEXT">
+  </form>
+</body>
+
+{% endblock %}

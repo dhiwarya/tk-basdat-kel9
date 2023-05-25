@@ -1,0 +1,32 @@
+<!-- r_ujian_kualifikasi.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>List Ujian Kualifikasi</h2>
+
+<table>
+  <tr>
+    <th>Tahun</th>
+    <th>Batch</th>
+    <th>Tempat Pelaksanaan</th>
+    <th>Tanggal Pelaksanaan</th>
+    {% if role == 'Atlet' %}
+    <th>Action</th>
+    {% endif %}
+  </tr>
+  {% for ujian in ujian_kualifikasi %}
+  <tr>
+    <td>{{ ujian.tahun }}</td>
+    <td>{{ ujian.batch }}</td>
+    <td>{{ ujian.tempat }}</td>
+    <td>{{ ujian.tanggal }}</td>
+    {% if role == 'Atlet' %}
+    <td>[Ikuti]</td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content %}

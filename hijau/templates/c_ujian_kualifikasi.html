@@ -1,0 +1,75 @@
+<!-- c_ujian_kualifikasi.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* style.css */
+
+/* Style for the form */
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  padding: 8px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for the error message */
+.alert {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+</style>
+
+  <h2>FORM BUAT UJIAN KUALIFIKASI</h2>
+  
+  <form method="POST">
+    {% csrf_token %}
+    <label for="tahun">Tahun:</label>
+    <input type="text" id="tahun" name="tahun" required>
+    <br>
+    <label for="batch">Batch:</label>
+    <input type="text" id="batch" name="batch" required>
+    <br>
+    <label for="tempat">Tempat Pelaksanaan:</label>
+    <input type="text" id="tempat" name="tempat" required>
+    <br>
+    <label for="tanggal">Tanggal Pelaksanaan:</label>
+    <input type="date" id="tanggal" name="tanggal" required>
+    <br>
+    <input type="submit" value="BUAT">
+  </form>
+
+  {% if error %}
+    <div class="alert">
+      <p>{{ error }}</p>
+    </div>
+  {% endif %}
+
+{% endblock content %}

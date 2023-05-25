@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.event-details {
+  background-color: #fff;
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-details p {
+  margin: 10px 0;
+}
+
+.category-select,
+.partner-select {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.category-select label,
+.partner-select label {
+  margin-bottom: 5px;
+}
+
+.category-select select,
+.partner-select select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.join-btn {
+  text-align: center;
+}
+
+.join-btn a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.join-btn a:hover {
+  background-color: #0069d9;
+}
+
+</style>
+
+<body>
+    <h1>PILIH KATEGORI</h1>
+    <div class="event-details">
+      <p><strong>Event:</strong> EventA</p>
+      <p><strong>Hadiah:</strong> Rp 5.000.000</p>
+      <p><strong>Tanggal Mulai:</strong> 12-04-2023</p>
+      <p><strong>Tanggal Selesai:</strong> 15-04-2023</p>
+      <p><strong>Kategori:</strong> S200</p>
+      <p><strong>Kapasitas:</strong> 50/64</p>
+      <p><strong>Stadium:</strong> GBK</p>
+      <p><strong>Negara:</strong> Indonesia</p>
+    </div>
+    <div class="category-select">
+      <label for="category"><strong>Kategori Partner</strong></label>
+      <select id="category" name="category">
+        <option value="Tunggal Putra">Tunggal Putra - Join</option>
+        <option value="Ganda Putra">Ganda Putra [Dropdown atlet] Join</option>
+        <option value="Ganda Campuran">Ganda Campuran [Dropdown atlet] Join</option>
+      </select>
+    </div>
+    <div class="partner-select">
+      <label for="partner"><strong>Atlet Partner</strong></label>
+      <select id="partner" name="partner">
+        <option value="">- Pilih Atlet -</option>
+        <option value="Atlet1">Atlet1</option>
+        <option value="Atlet2">Atlet2</option>
+        <option value="Atlet3">Atlet3</option>
+        <option value="Atlet4">Atlet4</option>
+      </select>
+    </div>
+    <div class="join-btn">
+      <a href="#">Join</a>
+    </div>
+  </body>
+
+{% endblock content %}
