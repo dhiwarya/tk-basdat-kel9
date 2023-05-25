@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'atlet',
-    'landing_page'
+    'landing_page',
+    'pink'
 ]
 
 MIDDLEWARE = [

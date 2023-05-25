@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- r_k_ujian_kualifikasi.html -->
+
+{% if user.is_umpire %}
+  <h1>Riwayat Ujian Kualifikasi</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama Atlet</th>
+        <th>Tahun</th>
+        <th>Batch</th>
+        <th>Tempat Pelaksanaan</th>
+        <th>Tanggal Pelaksanaan</th>
+        <th>Hasil</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in riwayat_atlet_kualifikasi %}
+        <tr>
+          <td>{{ data.nama }}</td>
+          <td>{{ data.tahun }}</td>
+          <td>{{ data.batch }}</td>
+          <td>{{ data.tempat }}</td>
+          <td>{{ data.tanggal }}</td>
+          <td>Lulus</td>
+        </tr>
+      {% endfor %}
+      {% for data in riwayat_atlet_non_kualifikasi %}
+        <tr>
+          <td>{{ data.nama }}</td>
+          <td>{{ data.tahun }}</td>
+          <td>{{ data.batch }}</td>
+          <td>{{ data.tempat }}</td>
+          <td>{{ data.tanggal }}</td>
+          <td>Tidak Lulus</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <h1>Riwayat Ujian Kualifikasi</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Tahun</th>
+        <th>Batch</th>
+        <th>Tempat Pelaksanaan</th>
+        <th>Tanggal Pelaksanaan</th>
+        <th>Hasil</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in riwayat_atlet_kualifikasi %}
+        <tr>
+          <td>{{ data.tahun }}</td>
+          <td>{{ data.batch }}</td>
+          <td>{{ data.tempat }}</td>
+          <td>{{ data.tanggal }}</td>
+          <td>Lulus</td>
+        </tr>
+      {% endfor %}
+      {% for data in riwayat_atlet_non_kualifikasi %}
+        <tr>
+          <td>{{ data.tahun }}</td>
+          <td>{{ data.batch }}</td>
+          <td>{{ data.tempat }}</td>
+          <td>{{ data.tanggal }}</td>
+          <td>Tidak Lulus</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+
+{% endblock content %}
