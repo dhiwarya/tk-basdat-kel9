@@ -20,5 +20,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('atlet/', include('atlet.urls')),
     path('', include('landing_page.urls')),
-    path('pink', include('pink.urls'))
+    path('pink/', include('pink.urls')),
+    path('dashboard/', include('dashboard.urls'))
 ]

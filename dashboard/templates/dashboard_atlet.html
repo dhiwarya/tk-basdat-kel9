@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<body>
+    <div class="container">
+    <div class="d-flex my-5 justify-content-center align-items-center">
+        <div class="container-sm mx-5 p-5 shadow-sm border rounded-5 border-primary">
+        <h1 class="text-center mb-5 text-primary">Dashboard</h1>
+        <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th scope="col">Nama Lengkap</th>
+                <td>{{ request.session.nama }}</td>
+                <th scope="col">Tinggi Badan</th>
+                <td>{{ request.session.height }} cm</td>
+              </tr>
+              <tr>
+                <th scope="col">Negara</th>
+                <td>{{ request.session.negara_asal }}</td>
+                <th scope="col">Jenis Kelamin</th>
+                <td> 
+                  {% if request.session.jenis_kelamin %}
+                  Putra
+                  {% else %}
+                  Putri
+                  {% endif %} 
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">Email</th>
+                <td>{{ request.session.email }}</td>
+                <th scope="col">Pelatih</th>
+                <td>{{ pelatih }}</td>
+              </tr>
+              <tr>
+                <th scope="col">Tanggal Lahir</th>
+                <td>{{ request.session.tgl_lahir }}</td>
+                <th scope="col">Status</th>
+                <td>{{ status_kualifikasi }}</td>
+              </tr>
+              <tr>
+                <th scope="col">Play</th>
+                <td>
+                  {% if request.session.play_right %}
+                  Right Hand
+                  {% else %}
+                  Left Hand
+                  {% endif %}  
+                </td>
+                <th scope="col">World Rank</th>
+                <td>
+                  {% if status_kualifikasi == 'Qualified' %}
+                  {{ request.session.world_rank }}
+                  {% else %}
+                  -
+                  {% endif %}
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">Total Poin</th>
+                <td>
+                  {% if status_kualifikasi == 'Qualified' %}
+                  {{  total_point }}
+                  {% else %}
+                  0
+                  {% endif %}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        <div style="margin-top:50px"></div>          
+    </div>
+    </div>
+           <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+
+{% endblock content %}
